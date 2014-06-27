@@ -8,7 +8,7 @@ $socket = new \React\Socket\Server($loop);
 $socket->listen(13378, '0.0.0.0');
 
 $dnsResolverFactory = new \React\Dns\Resolver\Factory();
-$dnsResolver = $dnsResolverFactory->createCached('8.8.8.8', $loop);
+$dnsResolver = $dnsResolverFactory->create('8.8.8.8', $loop);
 
 $socket->on('connection', function(\React\Socket\Connection $conn) use ($dnsResolver) {
     $buffer = '';
